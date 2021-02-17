@@ -3,6 +3,9 @@ namespace YamlLoader
 open YamlDotNet.Serialization
 open System.Collections.Generic
 
+type Tables =
+  CompanyTable | SubsidiaryTable | SiteTable | PodTable
+
 type Pod() =
     [<YamlMember(Alias = "pod_eid")>]
     member val PodEid = "" with get,set

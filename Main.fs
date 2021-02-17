@@ -25,16 +25,25 @@ module Main =
 
 
     for co in f.CompaniesDb.Companies do
+      // create company
+      Db.createTable conn CompanyTable |> ignore
       // insert company
       Db.insertCompany conn co |> ignore
       for subs in co.Subsidiaries do
+        // create table
+        Db.createTable conn SubsidiaryTable |> ignore
         // insert subsidiary
         Db.insertSubsidiary conn subs co.CompanyEid |> ignore
         for site in subs.Sites do
+          // create table
+          Db.createTable conn SiteTable |> ignore
           // insert site
           Db.insertSite conn site subs.SubsidiaryEid |> ignore
           for pod in site.Pods do
+            // create table
+            Db.createTable conn PodTable |> ignore
             // insert pod
+            Db.insertPod conn pod site.SiteEid |> ignore
             System.Console.WriteLine(sprintf "%s :: %s :: %s :: %s" co.CompanyEid subs.SubsidiaryEid site.SiteEid pod.PodEid)
 
     0
