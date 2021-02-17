@@ -6,61 +6,50 @@ open System.Collections.Generic
 type Tables =
   CompanyTable | SubsidiaryTable | SiteTable | PodTable
 
-type Pod() =
-    [<YamlMember(Alias = "pod_eid")>]
-    member val PodEid = "" with get,set
-    [<YamlMember(Alias = "pod_name")>]
-    member val PodName = "" with get,set
-    [<YamlMember(Alias = "pod_type")>]
-    member val PodType = "" with get,set
-    [<YamlMember(Alias = "active")>]
-    member val Active = true with get,set
 
-  type Site() =
-    [<YamlMember(Alias = "site_eid")>]
-    member val SiteEid = "" with get,set
-    [<YamlMember(Alias = "site_name")>]
-    member val SiteName = "" with get,set
-    [<YamlMember(Alias = "site_image")>]
-    member val SiteImage = "" with get,set
-    [<YamlMember(Alias = "active")>]
-    member val Active  = true with get,set
-    [<YamlMember(Alias = "country")>]
-    member val Country = "" with get,set
-    [<YamlMember(Alias = "zip_code")>]
-    member val ZipCode = "" with get,set
-    [<YamlMember(Alias = "pods")>]
-    member val Pods = List<Pod>() with get,set
+[<CLIMutable>]
+type Pod = {
+  PodEid: string
+  PodName: string
+  PodType: string
+  Active: bool
+}
 
+[<CLIMutable>]
+type Site = {
+  SiteEid: string
+  SiteName: string
+  SiteImage: string
+  Active: bool
+  Country: string
+  ZipCode: string
+  Pods: Pod[]
+}
 
-  type Subsidiary() =
-    [<YamlMember(Alias = "subsidiary_eid")>]
-    member val SubsidiaryEid = "" with get,set
-    [<YamlMember(Alias = "subsidiary_name")>]
-    member val SubsidiaryName = "" with get,set
-    [<YamlMember(Alias = "active")>]
-    member val Active  = true with get,set
-    [<YamlMember(Alias = "business_entity_type")>]
-    member val BusinessEntityType = "" with get,set
-    [<YamlMember(Alias = "sites")>]
-    member val Sites = List<Site>() with get,set
+[<CLIMutable>]
+type Subsidiary = {
+  SubsidiaryEid: string
+  SubsidiaryName: string
+  Active: bool
+  BusinessEntityType: string
+  Sites: Site[]
+}
 
+[<CLIMutable>]
+type Company = {
+  CompanyEid: string
+  CompanyName: string
+  Active: bool
+  BusinessEntityType: string
+  Subsidiaries: Subsidiary[]
+}
 
-  type Company() =
-    [<YamlMember(Alias = "company_eid")>]
-    member val CompanyEid = "" with get,set
-    [<YamlMember(Alias = "company_name")>]
-    member val CompanyName  = "" with get,set
-    [<YamlMember(Alias = "active")>]
-    member val Active  = true with get,set
-    [<YamlMember(Alias = "business_entity_type")>]
-    member val BusinessEntityType = "" with get,set
-    [<YamlMember(Alias = "subsidiaries")>]
-    member val Subsidiaries = List<Subsidiary>() with get,set
+[<CLIMutable>]
+type Companies = {
+  Companies: Company[]
+}
 
-  type Companies() =
-    member val Companies = new List<Company>() with get,set
-
-  type Fix() =
-    [<YamlMember(Alias = "companies_db")>]
-    member val CompaniesDb  = Companies() with get,set
+[<CLIMutable>]
+type Fix = {
+  CompaniesDb: Companies
+}

@@ -12,13 +12,36 @@ companies_db:
           business_entity_type: 'llc'
           sites:
             - site_eid: site-huterybywjvz5ru6ykuyfrjxkk4y
-              site_name: Test Site
+              site_name: Test Site1
+              site_image: "https://es-dev-hu-public.s3.eu-central-1.amazonaws.com/site-images/default.png"
+              active: true
+              country:  'HU'
+              zip_code: '1021'
+              pods:
+                - pod_name: HU2CMV415W-MUKA-021HY1AC9HMS-6228
+                  pod_eid: pod-hucpxr3vkbneu7oz2w4i5iymcyhm
+                  pod_type: 'eletricity'
+                  active: true
+                - pod_name: HU2CMV415W-KAMU-021HY1AC9HMS-7777
+                  pod_eid: pod-hu2bo4d6xlppar4d3g2qzhgfayxm
+                  pod_type: 'eletricity'
+                  active: true
+            - site_eid: site-huy4kkxjrfyuky6ur5zvjwybyret
+              site_name: Test Site1
               site_image: "https://es-dev-hu-public.s3.eu-central-1.amazonaws.com/site-images/default.png"
               active: true
               country:  'HU'
               zip_code: '1021'
               pods:
                 - pod_name: HU2CMV415W-KAMU-021HY1AC9HMS-6228
-                  pod_eid: pod-hucpxr3vkbneu7oz2w4i5iymcyhm
+                  pod_eid: pod-humhycmyi5i4w2zo7uenbkv3rxpc
+                  pod_type: 'eletricity'
+                  active: true
+                - pod_name: HU2CMV415W-KAMU-021HY1AC9HMS-8888
+                  pod_eid: pod-hu2bo4d6xlppar4d3g2qzhgfayxm
+                  pod_type: 'eletricity'
+                  active: true
+                - pod_name: HU2CMV415W-KAMU-021HY1AC9HMS-2323
+                  pod_eid: pod-huaobr246ix3yoaas5743si76ymu
                   pod_type: 'eletricity'
                   active: true

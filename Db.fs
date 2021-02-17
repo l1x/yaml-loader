@@ -148,7 +148,7 @@ module Db =
 
 
   let insertSite conn (site:Site) (subsEid:string) =
-    System.Console.WriteLine(sprintf "Db insert %A %A" site subsEid)
+
     let subsidiaryId =
       dbCommand conn {
         cmdText  "SELECT subsidiary_id
