@@ -22,6 +22,10 @@ companies_db:
                   pod_eid: pod-hucpxr3vkbneu7oz2w4i5iymcyhm
                   pod_type: 'eletricity'
                   active: true
+                  invoices:
+                    - start_date: '2021.01.01'
+                    - start_date: '2021.02.01'
+                    - start_date: '2021.03.01'
                 - pod_name: HU2CMV415W-KAMU-021HY1AC9HMS-7777
                   pod_eid: pod-hu2bo4d6xlppar4d3g2qzhgfayxm
                   pod_type: 'eletricity'

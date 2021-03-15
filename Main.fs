@@ -44,6 +44,13 @@ module Main =
             Db.createTable conn PodTable |> ignore
             // insert pod
             Db.insertPod conn pod site.SiteEid |> ignore
-            System.Console.WriteLine(sprintf "%s :: %s :: %s :: %s" co.CompanyEid subs.SubsidiaryEid site.SiteEid pod.PodEid)
+
+            let a =
+              if isNull pod.Invoices then
+                None
+              else
+                (Some pod.Invoices)
+
+            System.Console.WriteLine(sprintf "%s :: %s :: %s :: %s :: %A" co.CompanyEid subs.SubsidiaryEid site.SiteEid pod.PodEid a)
 
     0

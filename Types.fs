@@ -1,10 +1,13 @@
 namespace YamlLoader
 
-open YamlDotNet.Serialization
-open System.Collections.Generic
 
 type Tables =
   CompanyTable | SubsidiaryTable | SiteTable | PodTable
+
+[<CLIMutable>]
+type Invoice = {
+  StartDate: string
+}
 
 
 [<CLIMutable>]
@@ -13,7 +16,9 @@ type Pod = {
   PodName: string
   PodType: string
   Active: bool
+  Invoices: Invoice[]
 }
+
 
 [<CLIMutable>]
 type Site = {
@@ -26,6 +31,7 @@ type Site = {
   Pods: Pod[]
 }
 
+
 [<CLIMutable>]
 type Subsidiary = {
   SubsidiaryEid: string
@@ -34,6 +40,7 @@ type Subsidiary = {
   BusinessEntityType: string
   Sites: Site[]
 }
+
 
 [<CLIMutable>]
 type Company = {
@@ -44,10 +51,12 @@ type Company = {
   Subsidiaries: Subsidiary[]
 }
 
+
 [<CLIMutable>]
 type Companies = {
   Companies: Company[]
 }
+
 
 [<CLIMutable>]
 type Fix = {
